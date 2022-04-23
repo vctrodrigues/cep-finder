@@ -1,0 +1,53 @@
+// class helpers
+.app-container {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  padding: var(--app-size--xxs);
+  border: 1px solid var(--app-color-grey-light);
+  border-radius: var(--app-size--micro);
+  background-color: var(--app-color-white);
+}
+
+.app-row {
+  display: flex;
+  width: 100%;
+}
+
+.app-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@each $token, $size in $sizes {
+  @each $shortcut, $prefix in $spacing {
+    @each $side, $sufixes in $sides {
+      .app-#{$shortcut}#{$side}--#{$token} {
+        @each $sufix in $sufixes {
+          #{$prefix}-#{$sufix}: var(--app-size--#{$token});    
+        }
+      }
+    }
+  }
+}
+
+@each $side, $props in $borders {
+  .app-b#{$side} {
+    @each $prop in $props {
+      #{$prop}: 1px solid var(--app-color-grey-light);    
+    }
+  }
+}
+
+@each $type, $alignment in $diagram {
+  @each $style, $value in $alignment {
+    .app-#{$type}--#{$style} {
+      @if $type == 'justify' {
+        justify-content: #{$value};
+      } @else {
+        align-items: #{$value};
+      }
+    }
+  }
+}

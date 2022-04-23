@@ -1,0 +1,89 @@
+$colors: (
+  'primary': #222B45,
+  'secondary': #00E77B,
+  'error': #e91b1b,
+  'error-light': #f5c6c6,
+  'error-dark': #b15b5b,
+  'warning': #f9f6c1,
+  'warning-dark': #d0ba71,
+  'success': #a0ea82,
+  'success-dark': #77a664,
+  'background': #f7f7f9,
+  'text': #333,
+  'placeholder': #aaa,
+  'white': white,
+  'black': black,
+  'grey': #666,
+  'grey-light': #ddd,
+  'grey-light-2': #eee,
+);
+
+:root {
+  @each $name, $color in $colors {
+    --app-color-#{$name}: #{$color};
+  }
+}
+
+$sizes: (
+  'none': 0,
+  'quark': 2px,
+  'nano': 4px,
+  'micro': 8px,
+  'xxxs': 12px, 
+  'xxs': 16px,
+  'xs': 24px,
+  'sm': 32px,
+  'md': 40px,
+  'lg': 48px,
+  'xl': 56px,
+  'xxl': 64px,
+  'xxxl': 72px,
+  'giant': 80px,
+  'huge': 120px,
+);
+
+:root {
+  @each $token, $size in $sizes {
+    --app-size--#{$token}: #{$size};
+  }
+}
+
+$sides: (
+  't': 'top',
+  'r': 'right',
+  'b': 'bottom',
+  'l': 'left',
+  'x': ('left', 'right'),
+  'y': ('top', 'bottom'),
+  'a': ('top', 'right', 'bottom', 'left'),
+);
+
+$spacing: (
+  'm': 'margin',
+  'p': 'padding'
+);
+
+$borders: (
+  't': 'border-top',
+  'r': 'border-right',
+  'b': 'border-bottom',
+  'l': 'border-left',
+  'x': ('border-left', 'border-right'),
+  'y': ('border-top', 'border-bottom'),
+  'a': ('border-top', 'border-right', 'border-bottom', 'border-left'),
+);
+
+$diagram: (
+  'justify': (
+    'center': 'center',
+    'start': 'flex-start',
+    'end': 'flex-end',
+    'between': 'space-between',
+    'around': 'space-around',
+  ),
+  'align': (
+    'center': 'center',
+    'start': 'flex-start',
+    'end': 'flex-end',
+  ),
+);
